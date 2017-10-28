@@ -1,6 +1,0 @@
-#!/bin/sh
-
-[ -n "$OZH_INSTALL" ] && {
-  mkdir -p $OZH/bin
-  oz install +only usplash/usplash.c
-  gcc -std=gnu11 -o $OZH/bin/usplash $OZH/usplash/usplash.c; }
