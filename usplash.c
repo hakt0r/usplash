@@ -614,10 +614,10 @@ void rpc_init(void){
                                                                         ##        ##    ##  ##    ##
                                                                         ########  ########  ######*/
 
-static              char* LOG[0x0a];
-static unsigned int const LOG_MAX = 0x0a;
-static unsigned int       LOG_CUR = 0x00;
-static unsigned int       LOG_LENGTH = 0x00;
+static              char* LOG[0xa];
+static unsigned int const LOG_MAX = 0xa;
+static unsigned int       LOG_CUR = 0x0;
+static unsigned int       LOG_LENGTH = 0x0;
 
 void ulog(char* message){
   LOG[LOG_CUR] = message;
@@ -717,8 +717,12 @@ void VIEW_render(){
       _RENDER_(BG[i-bgTop-1], strlen(BG[i-bgTop-1])); }
     else if ((menuTop > i) && (log_lines_rendered < LOG_LENGTH)){
       log_line = LOG[( LOG_CUR - 1 - log_lines_rendered++ ) % LOG_MAX ];
-      if ( !log_line ) continue;
-      _RENDER_(log_line,strlen(log_line)); RENDER_BUFFER[pos++] = '\n'; }}
+      if ( !log_line ) {
+        _RENDER_(PAD_BG, PAD_BG_LENGTH);
+        _RENDER_(BG[i-bgTop-1], strlen(BG[i-bgTop-1])); }
+      else {
+        _RENDER_(log_line,strlen(log_line));
+        RENDER_BUFFER[pos++] = '\n'; }}}
   write(TTYFD,RENDER_BUFFER,pos);
   buffer = RENDER_BUFFER; RENDER_BUFFER = OUTPUT_BUFFER; OUTPUT_BUFFER = buffer; }
 
