@@ -30,22 +30,22 @@ meaning that background-processes can add and update entries in the menu, or eve
 
 #### OPTIONS for --menu -m
 | Switch | Argument     | Description                               |
-| -----: | :----------- | :---------------------------------------- |
-|     -H | STRING       | Set custom menu-header to STRING          |
-|     -F | STRING       | Set custom menu-footer to STRING          |
-|     -L | STRING       | Set custom left-tile to STRING            |
-|     -R | STRING       | Set custom right-tile to STRING           |
+| -----: | -----------: | :---------------------------------------- |
+|     -H |       STRING | Set custom menu-header to STRING          |
+|     -F |       STRING | Set custom menu-footer to STRING          |
+|     -L |       STRING | Set custom left-tile to STRING            |
+|     -R |       STRING | Set custom right-tile to STRING           |
 
 #### OPTIONS for --item -i
 | Switch | Longswitch   | Argument    | Description                 |
 | -----: | -----------: | :---------- | :-------------------------- |
-|     -t | --title      | TITLE       | Set title to TITLE          |
-|     -a | --action     | SCRIPT      | Set action to SCRIPT        |
+|     -t |      --title | TITLE       | Set title to TITLE          |
+|     -a |     --action | SCRIPT      | Set action to SCRIPT        |
 
 #### OPTIONS for --switchroot -S
 | Switch | Longswitch   | Argument    | Description                 |
 | -----: | -----------: | :---------- | :-------------------------- |
-|     -a | --action     | SCRIPT      | Run SCRIPT after the switch |
+|     -a |     --action | SCRIPT      | Run SCRIPT after the switch |
 
 ### Licensed under GNU GPLv3
 
