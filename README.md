@@ -11,26 +11,41 @@ now you can add menu items and scripts they should execute.
 Opposed to dialog and other menu systems for the command-line, usplash can be changed at runtime;
 meaning that background-processes can add and update entries in the menu, or even trigger actions and select entries.
 
-  usage$ usplash ACTION [OPTIONS]
+### USAGE
 
-  ACTIONS: (*optional)
-    -m --menu                Menu/Daemon Mode
-       * -S "PATH"         Switch root to PATH
-       * -a "SCRIPT"       Run after switch
-       * -e "SCRIPT"       PRE-EXEC script
-       * -H "VALUE"        Menu Header
-       * -F "VALUE"        Menu Footer
-       * -L "VALUE"        Left Tile
-       * -R "VALUE"        Right Tile
-    -q --quit "SCRIPT"       Stop daemon and run (optional) SCRIPT
-    -i --item "ID"           Set/create item ID (requires -a -t)
-    -r --run "ID"            Run action from item ID (
-    -d --delete "ID"         Delete item ID
-    -h --help                This message.
+    usplash ACTION [OPTIONS]
 
-  OPTIONS:
-    -t --title "TITLE"       Set TITLE of item ID (-i)
-    -a --action "SCRIPT"     Set SCRIPT of item ID (-i)";
+#### ACTION := m|i|r|d|w|q|S
+
+| Switch | Longswitch   | Argument    | Description                 |
+| -----: | -----------: | :---------- | :-------------------------- |
+|     -m |       --menu |             | Menu/Daemon Mode            |
+|     -i |       --item | KEY[:INDEX] | Set/create item KEY[:INDEX] |
+|     -r |        --run | KEY[:INDEX] | Run KEY[:INDEX]'s action    |
+|     -d |     --delete | KEY[:INDEX] | Delete item KEY[:INDEX]     |
+|     -w |     --widget | KEY         | Set/change widget for KEY   |
+|     -q |       --quit | [SCRIPT]    | Stop daemon; [run SCRIPT]   |
+|     -S | --switchroot | MOUNTPOINT  | Switch root to MOUNTPOINT   |
+|     -h |       --help |             | This message                |
+
+#### OPTIONS for --menu -m
+| Switch | Argument     | Description                               |
+| -----: | :----------- | :---------------------------------------- |
+|     -H | STRING       | Set custom menu-header to STRING          |
+|     -F | STRING       | Set custom menu-footer to STRING          |
+|     -L | STRING       | Set custom left-tile to STRING            |
+|     -R | STRING       | Set custom right-tile to STRING           |
+
+#### OPTIONS for --item -i
+| Switch | Longswitch   | Argument    | Description                 |
+| -----: | -----------: | :---------- | :-------------------------- |
+|     -t | --title      | TITLE       | Set title to TITLE          |
+|     -a | --action     | SCRIPT      | Set action to SCRIPT        |
+
+#### OPTIONS for --switchroot -S
+| Switch | Longswitch   | Argument    | Description                 |
+| -----: | -----------: | :---------- | :-------------------------- |
+|     -a | --action     | SCRIPT      | Run SCRIPT after the switch |
 
 ### Licensed under GNU GPLv3
 
