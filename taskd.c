@@ -79,14 +79,14 @@ Task* task_open(char* name, char* cmd){
 
 void task_free_ptr(Task *t){
   char *name = t->name;
-  UDBG("\e[34mTASK\e[0m \e[31mFREE_PTR\e[0m name=%s fd=%i\n",t->name,t->ofd);
+  UDBG("\e[34mTASK\e[0m \e[31mFREE_PTR\e[0m name=%s fd=%i\n",t->name);
   free(t->log); free(t->err);
   free(t->dir); free(t->run);
   umap_del(TASK,name,free);
   free(name); }
 
 void task_close_ptr(Task *t){
-  UDBG("\e[34mTASK\e[0m \e[31mCLOSE_PTR\e[0m name=%s fd=%i\n",t->name,t->ofd);
+  UDBG("\e[34mTASK\e[0m \e[31mCLOSE_PTR\e[0m name=%s fd=%i\n",t->name);
   io_kill_recursive(t->pid,9);
   UDBG("[\e[32m%s\e[0m] \e[31mkilled\e[0m\n",t->name); }
 
